@@ -309,4 +309,29 @@ body {
 .back-button:hover {
     transform: scale(1.05);
     background-color: #5a6268;
+}/* 强行撑开二级详情弹窗的高能代码 */
+#recipe-detail-modal {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 90% !important;
+    max-width: 1000px !important;
+    height: 80vh !important; /* 占据屏幕高度的80% */
+    min-height: 500px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 50px !important;
+    overflow-y: auto !important; /* 允许垂直滚动 */
+}
+
+/* 让里面的文案也有足够的间距 */
+#recipe-detail-modal h2 {
+    font-size: 2.2rem !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+}
+
+#recipe-detail-content {
+    line-height: 1.8 !important;
+    font-size: 1.1rem !important;
 }
