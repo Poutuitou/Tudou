@@ -757,7 +757,8 @@ document.addEventListener('DOMContentLoaded', () => {
         detailSteps.innerHTML = `<strong>烹饪步骤:</strong><br>${recipe.steps.split('. ').map((step, i) => i > 0 ? `${i}. ${step.trim()}` : step.trim()).join('<br>')}`;
         
         recipeGrid.style.display = 'none';
-        recipeDetail.style.display = 'block';
+            recipeDetail.style.display = 'block';
+            recipeDetail.classList.add('active'); // Add active class for animation
     }
 
     if (potatoButton) {
@@ -772,6 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalOverlay.classList.remove('active');
             recipeGrid.style.display = 'grid'; // Reset to grid view
             recipeDetail.style.display = 'none'; // Hide detail view
+            recipeDetail.classList.remove('active'); // Remove active class
         });
     }
 

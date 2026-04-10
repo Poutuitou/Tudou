@@ -50,6 +50,7 @@ body {
     }
 
     .modal-content {
+        width: 90%; /* 手机端宽度调整 */
         padding: 20px;
     }
 
@@ -90,6 +91,12 @@ body {
     .back-button {
         padding: 8px 15px;
         font-size: 14px;
+    }
+
+    .close-button {
+        font-size: 24px; /* 手机端关闭按钮 */
+        top: 5px;
+        right: 10px;
     }
 }
 .card h1 {
@@ -157,11 +164,13 @@ body {
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
+    width: 85%; /* 拓宽菜单列表 */
+    max-width: 1200px; /* 最大宽度 */
     max-height: 90%;
     overflow-y: auto;
     position: relative;
     text-align: center;
+    transition: all 0.3s ease-in-out; /* 为动画准备 */
 }
 
 .modal-title {
@@ -171,8 +180,8 @@ body {
 
 .recipe-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 三列布局 */
+    gap: 20px; /* 增加内边距，呼吸感 */
     padding: 10px;
 }
 
@@ -211,7 +220,8 @@ body {
     right: 15px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 30px; /* 增大关闭按钮 */
+    padding: 5px; /* 增大点击区域 */
     cursor: pointer;
     color: #333;
 }
@@ -221,30 +231,37 @@ body {
 }
 
 .recipe-detail {
-    background-color: rgba(255, 255, 255, 0.9); /* 详情页背景，更不透明 */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     max-width: 90%;
     max-height: 90%;
     overflow-y: auto;
-    position: absolute; /* 覆盖在网格之上 */
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.9); /* 初始缩小 */
+    opacity: 0; /* 初始透明 */
     width: 100%;
     height: 100%;
-    box-sizing: border-box; /* 确保padding不会撑大元素 */
+    box-sizing: border-box;
     text-align: left;
-    backdrop-filter: blur(15px); /* 毛玻璃效果 */
-    -webkit-backdrop-filter: blur(15px); /* Safari兼容 */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.3s ease-out; /* 动画过渡 */
+}
+
+.recipe-detail.active {
+    transform: translate(-50%, -50%) scale(1); /* 放大到正常大小 */
+    opacity: 1; /* 完全不透明 */
 }
 
 .detail-title {
     color: #003366;
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 24px;
+    font-size: 28px; /* 大标题 */
     text-align: center;
 }
 
@@ -270,7 +287,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     display: block; /* 独立一行 */
     margin-left: auto;
     margin-right: auto;
