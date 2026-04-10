@@ -310,8 +310,7 @@ body {
     transform: scale(1.05);
     background-color: #5a6268;
 }/* 强制详情页容器展现设计师比例 */
-#potato-super-detail, 
-#potato-super-detail { /* 防止 ID 名字微调，用模糊匹配 */
+#potato-ultimate-card { /* 防止 ID 名字微调，用模糊匹配 */
     display: flex !important;
     flex-direction: column !important;
     width: 85vw !important;
@@ -329,9 +328,7 @@ body {
     z-index: 9999 !important;
     overflow-y: auto !important;
 }/* 强制开启“巨幕”模式，覆盖所有 JS 产生的错误高度 */
-#potato-super-detail, 
-#recipe-detail-modal, 
-[id*="detail-modal"] { 
+#potato-ultimate-card { 
     height: 80vh !important; /* 核心：强制占据屏幕 80% 的高度 */
     min-height: 550px !important;
     width: 90vw !important;
@@ -350,8 +347,7 @@ body {
 }
 
 /* 让菜名大标题更有设计感 */
-#potato-super-detail h2, 
-#recipe-detail-modal h2 {
+#potato-ultimate-card h2 {
     font-size: 2.4rem !important;
     margin-bottom: 25px !important;
     color: #333 !important;
