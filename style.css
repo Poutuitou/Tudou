@@ -310,8 +310,8 @@ body {
     transform: scale(1.05);
     background-color: #5a6268;
 }/* 强制详情页容器展现设计师比例 */
-#recipe-detail-modal, 
-[id*="detail-modal"] { /* 防止 ID 名字微调，用模糊匹配 */
+#potato-super-detail, 
+#potato-super-detail { /* 防止 ID 名字微调，用模糊匹配 */
     display: flex !important;
     flex-direction: column !important;
     width: 85vw !important;
