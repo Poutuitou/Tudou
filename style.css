@@ -233,7 +233,7 @@ body {
 .recipe-detail {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
-    padding: 40px; /* Increased vertical padding and all sides */
+    padding: 60px 40px !important; /* Increased vertical padding and all sides */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     max-width: 90%;
     min-height: 500px; /* Forced minimum height */
@@ -245,7 +245,9 @@ body {
     transform: translate(-50%, -50%) scale(0.9); /* 初始缩小 */
     opacity: 0; /* 初始透明 */
     width: 100%;
-    height: auto; /* Auto height based on content */
+    height: 70vh !important; /* Forced height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
     box-sizing: border-box;
     text-align: left;
     backdrop-filter: blur(15px);
@@ -270,7 +272,8 @@ body {
     color: #003366;
     margin-top: 0;
     margin-bottom: 25px; /* Increased margin-bottom */
-    font-size: 36px; /* Larger title */
+    font-size: 2rem; /* Larger title */
+    font-weight: bold; /* Bold title */
     text-align: center;
 }
 
@@ -296,7 +299,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: auto; /* Push to bottom */
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     display: block; /* 独立一行 */
     margin-left: auto;
