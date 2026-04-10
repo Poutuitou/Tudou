@@ -34,6 +34,64 @@ body {
     -webkit-backdrop-filter: blur(10px); /* Safari兼容 */
 }
 
+@media (max-width: 600px) {
+    .card {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .card h1 {
+        font-size: 24px;
+    }
+
+    .action-button, .potato-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .recipe-card {
+        padding: 10px;
+    }
+
+    .recipe-card h3 {
+        font-size: 14px;
+    }
+
+    .recipe-card p {
+        font-size: 12px;
+    }
+
+    .recipe-detail {
+        padding: 20px;
+    }
+
+    .detail-title {
+        font-size: 20px;
+    }
+
+    .detail-ingredients,
+    .detail-steps {
+        font-size: 14px;
+    }
+
+    .back-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
 .card h1 {
     color: #003366; /* 深蓝色 */
 }
