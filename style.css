@@ -309,29 +309,52 @@ body {
 .back-button:hover {
     transform: scale(1.05);
     background-color: #5a6268;
-}/* 强行撑开二级详情弹窗的高能代码 */
-#recipe-detail-modal {
+}/* 强制详情页容器展现设计师比例 */
+#potato-super-detail, 
+#potato-super-detail { /* 防止 ID 名字微调，用模糊匹配 */
     display: flex !important;
     flex-direction: column !important;
-    width: 90% !important;
-    max-width: 1000px !important;
-    height: 80vh !important; /* 占据屏幕高度的80% */
-    min-height: 500px !important;
+    width: 85vw !important;
+    max-width: 900px !important;
+    height: 80vh !important; /* 核心：强制 80% 屏幕高度 */
+    position: fixed !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    padding: 50px !important;
-    overflow-y: auto !important; /* 允许垂直滚动 */
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    padding: 40px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+}/* 强制开启“巨幕”模式，覆盖所有 JS 产生的错误高度 */
+#potato-super-detail, 
+#recipe-detail-modal, 
+[id*="detail-modal"] { 
+    height: 80vh !important; /* 核心：强制占据屏幕 80% 的高度 */
+    min-height: 550px !important;
+    width: 90vw !important;
+    max-width: 950px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 50px 30px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 24px !important;
+    overflow-y: auto !important; /* 允许内部内容滚动 */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4) !important;
 }
 
-/* 让里面的文案也有足够的间距 */
+/* 让菜名大标题更有设计感 */
+#potato-super-detail h2, 
 #recipe-detail-modal h2 {
-    font-size: 2.2rem !important;
-    margin-bottom: 30px !important;
-    text-align: center !important;
-}
-
-#recipe-detail-content {
-    line-height: 1.8 !important;
-    font-size: 1.1rem !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 25px !important;
+    color: #333 !important;
+    border-bottom: 2px solid #eee !important;
+    padding-bottom: 15px !important;
 }
