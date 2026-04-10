@@ -233,10 +233,11 @@ body {
 .recipe-detail {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
-    padding: 30px;
+    padding: 60px 40px !important; /* Increased vertical padding and all sides */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     max-width: 90%;
-    max-height: 90%;
+    min-height: 500px; /* Forced minimum height */
+    max-height: 85vh; /* Maximum height */
     overflow-y: auto;
     position: absolute;
     top: 50%;
@@ -244,12 +245,22 @@ body {
     transform: translate(-50%, -50%) scale(0.9); /* 初始缩小 */
     opacity: 0; /* 初始透明 */
     width: 100%;
-    height: 100%;
+    height: 70vh !important; /* Forced height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
     box-sizing: border-box;
     text-align: left;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     transition: all 0.3s ease-out; /* 动画过渡 */
+    /* Scrollbar hiding */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* For Chrome, Safari and Opera */
+.recipe-detail::-webkit-scrollbar {
+    display: none;
 }
 
 .recipe-detail.active {
@@ -260,15 +271,17 @@ body {
 .detail-title {
     color: #003366;
     margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 28px; /* 大标题 */
+    margin-bottom: 25px; /* Increased margin-bottom */
+    font-size: 2rem; /* Larger title */
+    font-weight: bold; /* Bold title */
     text-align: center;
 }
 
 .detail-ingredients, .detail-steps {
     color: #333;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 20px; /* Increased margin-bottom */
+    line-height: 1.8; /* Wider line spacing */
+    font-size: 18px; /* Larger font size */
 }
 
 .detail-ingredients strong,
@@ -286,7 +299,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: auto; /* Push to bottom */
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     display: block; /* 独立一行 */
     margin-left: auto;
@@ -296,4 +309,29 @@ body {
 .back-button:hover {
     transform: scale(1.05);
     background-color: #5a6268;
+}/* 强行撑开二级详情弹窗的高能代码 */
+#recipe-detail-modal {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 90% !important;
+    max-width: 1000px !important;
+    height: 80vh !important; /* 占据屏幕高度的80% */
+    min-height: 500px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 50px !important;
+    overflow-y: auto !important; /* 允许垂直滚动 */
+}
+
+/* 让里面的文案也有足够的间距 */
+#recipe-detail-modal h2 {
+    font-size: 2.2rem !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+}
+
+#recipe-detail-content {
+    line-height: 1.8 !important;
+    font-size: 1.1rem !important;
 }
