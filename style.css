@@ -167,7 +167,8 @@ body {
     width: 85%; /* 拓宽菜单列表 */
     max-width: 1200px; /* 最大宽度 */
     max-height: 90%;
-    overflow-y: auto;
+    min-height: 65vh !important;
+    overflow-y: auto !important;
     position: relative;
     text-align: center;
     transition: all 0.3s ease-in-out; /* 为动画准备 */
