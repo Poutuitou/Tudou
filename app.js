@@ -763,7 +763,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (potatoButton) {
         potatoButton.addEventListener('click', () => {
-            console.log('Potato button clicked!');
             modalOverlay.style.setProperty('display', 'block', 'important');
             generateRecipeCards(); // Generate recipes when modal opens
         });
