@@ -280,20 +280,24 @@ body {
 }
 
 #potato72-modal { 
-    display: none; /* 强制初始化为隐藏 */ 
+    display: none !important; /* 强制初始化隐藏，还我菜单交互 */ 
     position: fixed; 
-    z-index: 1000; 
-    left: 0; 
     top: 0; 
+    left: 0; 
     width: 100%; 
     height: 100%; 
-    background-color: rgba(0,0,0,0.5); /* 变暗效果 */ 
+    z-index: 9999; 
+    background-color: rgba(0,0,0,0.8); 
+    overflow-y: auto; 
 } 
 
 #potato-ultimate-card { 
-    background-color: #fefefe; 
-    margin: 10% auto; 
-    padding: 20px; 
-    width: 80%; 
-    /* 先别管高度了，先让菜单能点！ */ 
+    background: #fff; 
+    margin: 5vh auto; 
+    padding: 25px; 
+    width: 90%; 
+    max-width: 500px; 
+    min-height: 60vh; /* 保证高度 */ 
+    border-radius: 12px; 
+    position: relative; 
 }

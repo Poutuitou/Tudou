@@ -763,14 +763,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (potatoButton) {
         potatoButton.addEventListener('click', () => {
-            modalOverlay.classList.add('active');
+            modalOverlay.style.setProperty('display', 'block', 'important');
             generateRecipeCards(); // Generate recipes when modal opens
         });
     }
 
     if (closeButton) {
         closeButton.addEventListener('click', () => {
-            modalOverlay.classList.remove('active');
+            modalOverlay.style.setProperty('display', 'none', 'important');
             recipeGrid.style.display = 'grid'; // Reset to grid view
             recipeDetail.style.display = 'none'; // Hide detail view
             recipeDetail.classList.remove('active'); // Remove active class
@@ -787,7 +787,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close modal when clicking outside content (on the overlay itself)
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
-            modalOverlay.classList.remove('active');
+            modalOverlay.style.setProperty('display', 'none', 'important');
             recipeGrid.style.display = 'grid'; // Reset to grid view
             recipeDetail.style.display = 'none'; // Hide detail view
         }
