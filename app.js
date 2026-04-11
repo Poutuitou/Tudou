@@ -758,7 +758,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         recipeGrid.style.display = 'none';
             recipeDetail.style.display = 'block';
-            recipeDetail.classList.add('active'); // Add active class for animation
+
     }
 
     if (potatoButton) {
@@ -773,7 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalOverlay.style.setProperty('display', 'none', 'important');
             recipeGrid.style.display = 'grid'; // Reset to grid view
             recipeDetail.style.display = 'none'; // Hide detail view
-            recipeDetail.classList.remove('active'); // Remove active class
+
         });
     }
 
