@@ -96,36 +96,38 @@ p {
 }
 
 .action-button {
-    background-color: #007bff;
+    background-color: #F4CBB7; /* Blush 腮红粉 */
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 15px;
-    transition: transform 0.2s ease-in-out; /* 平滑过渡效果 */
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease;
 }
 
 .action-button:hover {
-    transform: scale(1.05); /* 鼠标悬停时稍微放大 */
+    transform: scale(1.05);
+    background-color: #F2B9A0; /* 鼠标悬停时略微加深 */
 }
 
 .potato-button {
-    background-color: #28a745;
-    color: white;
+    background-color: #B9D0A2; /* Sage 鼠尾草绿 */
+    color: #333; /* 深色文字 */
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
     margin-left: 10px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease;
 }
 
 .potato-button:hover {
     transform: scale(1.05);
+    background-color: #A9C290; /* 鼠标悬停时略微加深 */
 }
 
 #potato72-modal {
