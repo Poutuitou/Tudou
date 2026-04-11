@@ -279,24 +279,25 @@ body {
     background-color: #5a6268;
 }
 
-/* 强制外层遮罩铺满且可滚动 */
 #potato72-modal {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow-y: auto !important;
-    padding: 20px 0 !important;
+    display: none; /* 初始状态必须隐藏，否则会挡住主菜单 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; /* 确保只在弹出时在最上层 */
+    background-color: rgba(0,0,0,0.7); 
+    overflow-y: auto;
 }
 
-/* 强制内层卡片长高，别再缩成一条缝 */
 #potato-ultimate-card {
-    min-height: 70vh !important;
-    height: auto !important;
-    width: 90% !important;
-    max-width: 800px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 40px !important;
-    background: white !important;
-    position: relative !important;
+    background: #fff; 
+    margin: 5vh auto; /* 上下留点空隙 */
+    padding: 30px; 
+    width: 85%; 
+    max-width: 600px; 
+    min-height: 60vh !important; /* 核心：这里控制高度 */ 
+    border-radius: 15px; 
+    position: relative; 
 }
