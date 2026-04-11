@@ -279,25 +279,21 @@ body {
     background-color: #5a6268;
 }
 
-#potato72-modal {
-    display: none; /* 初始状态必须隐藏，否则会挡住主菜单 */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000; /* 确保只在弹出时在最上层 */
-    background-color: rgba(0,0,0,0.7); 
-    overflow-y: auto;
-}
+#potato72-modal { 
+    display: none; /* 强制初始化为隐藏 */ 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); /* 变暗效果 */ 
+} 
 
-#potato-ultimate-card {
-    background: #fff; 
-    margin: 5vh auto; /* 上下留点空隙 */
-    padding: 30px; 
-    width: 85%; 
-    max-width: 600px; 
-    min-height: 60vh !important; /* 核心：这里控制高度 */ 
-    border-radius: 15px; 
-    position: relative; 
+#potato-ultimate-card { 
+    background-color: #fefefe; 
+    margin: 10% auto; 
+    padding: 20px; 
+    width: 80%; 
+    /* 先别管高度了，先让菜单能点！ */ 
 }
