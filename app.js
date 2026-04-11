@@ -781,6 +781,20 @@ document.addEventListener('DOMContentLoaded', () => {
             recipe.ingredients.toLowerCase().includes(searchTerm)
         );
         generateRecipeCards(filteredRecipes);
+
+        // Scroll to the first matched recipe if a search term is present
+        if (searchTerm && filteredRecipes.length > 0) {
+            // Find the corresponding card in the DOM
+            // We use setTimeout to ensure cards are rendered before trying to scroll
+            setTimeout(() => {
+                const firstMatchedRecipe = filteredRecipes[0];
+                const originalIndex = potatoRecipes.indexOf(firstMatchedRecipe);
+                const targetCard = recipeGrid.querySelector(`[data-original-index="${originalIndex}"]`);
+                if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100); // Small delay to ensure DOM is updated
+        }
     };
 
     searchButton.addEventListener('click', performSearch);
