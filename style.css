@@ -48,39 +48,8 @@ body {
         padding: 8px 15px;
         font-size: 14px;
     }
-
-    .modal-title {
-        font-size: 22px;
-    }
-
-    .recipe-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
-    }
-
-    .recipe-card {
-        padding: 10px;
-    }
-
-    .recipe-card h3 {
-        font-size: 14px;
-    }
-
-    .recipe-card p {
-        font-size: 12px;
-    }
-
-    .back-button {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-
-    .close-button {
-        font-size: 24px; /* 手机端关闭按钮 */
-        top: 5px;
-        right: 10px;
-    }
 }
+
 .card h1 {
     color: #003366; /* 深蓝色 */
 }
@@ -118,186 +87,25 @@ body {
     transform: scale(1.05);
 }
 
-.modal-overlay {
+#potato72-modal {
+    display: none !important; /* 强制初始化隐藏，还我菜单交互 */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-title {
-    color: #003366;
-    margin-bottom: 20px;
-}
-
-.recipe-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 三列布局 */
-    gap: 20px; /* 增加内边距，呼吸感 */
-    padding: 10px;
-}
-
-.recipe-card {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.4;
-    cursor: pointer; /* Make recipe cards clickable */
-}
-
-.recipe-card h3 {
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.recipe-card p {
-    color: #666;
-    margin-bottom: 0;
-}
-
-.recipe-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 30px; /* 增大关闭按钮 */
-    padding: 5px; /* 增大点击区域 */
-    cursor: pointer;
-    color: #333;
-}
-
-.close-button:hover {
-    color: #000;
-}
-
-.recipe-detail {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 60px 40px !important; /* Increased vertical padding and all sides */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
-    min-height: 500px; /* Forced minimum height */
-    max-height: 85vh; /* Maximum height */
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.8);
     overflow-y: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9); /* 初始缩小 */
-    opacity: 0; /* 初始透明 */
-    width: 100%;
-    height: 70vh !important; /* Forced height */
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack items vertically */
-    box-sizing: border-box;
-    text-align: left;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    transition: all 0.3s ease-out; /* 动画过渡 */
-    /* Scrollbar hiding */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
-/* For Chrome, Safari and Opera */
-.recipe-detail::-webkit-scrollbar {
-    display: none;
-}
-
-.recipe-detail.active {
-    transform: translate(-50%, -50%) scale(1); /* 放大到正常大小 */
-    opacity: 1; /* 完全不透明 */
-}
-
-.detail-title {
-    color: #003366;
-    margin-top: 0;
-    margin-bottom: 25px; /* Increased margin-bottom */
-    font-size: 2rem; /* Larger title */
-    font-weight: bold; /* Bold title */
-    text-align: center;
-}
-
-.detail-ingredients, .detail-steps {
-    color: #333;
-    margin-bottom: 20px; /* Increased margin-bottom */
-    line-height: 1.8; /* Wider line spacing */
-    font-size: 18px; /* Larger font size */
-}
-
-.detail-ingredients strong,
-.detail-steps strong {
-    color: #003366;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.back-button {
-    background-color: #6c757d; /* 灰色 */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: auto; /* Push to bottom */
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    display: block; /* 独立一行 */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.back-button:hover {
-    transform: scale(1.05);
-    background-color: #5a6268;
-}
-
-#potato72-modal { 
-    display: none !important; /* 强制初始化隐藏，还我菜单交互 */ 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: 9999; 
-    background-color: rgba(0,0,0,0.8); 
-    overflow-y: auto; 
-} 
-
-#potato-ultimate-card { 
-    background: #fff; 
-    margin: 5vh auto; 
-    padding: 25px; 
-    width: 90%; 
-    max-width: 500px; 
-    min-height: 60vh; /* 保证高度 */ 
-    border-radius: 12px; 
-    position: relative; 
+#potato-ultimate-card {
+    background: #fff;
+    margin: 5vh auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    min-height: 60vh; /* 保证高度 */
+    border-radius: 12px;
+    position: relative;
 }
