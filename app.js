@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const backButton = recipeDetail.querySelector('.back-button');
     const closeButton = modalOverlay.querySelector('.close-button');
 
+    const searchInput = document.getElementById('recipe-search');
+    const searchButton = document.getElementById('search-button');
+
     const potatoRecipes = [
         { 
             name: "酸辣土豆丝", 
@@ -734,19 +737,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    function generateRecipeCards() {
+    function generateRecipeCards(recipesToDisplay = potatoRecipes) {
         recipeGrid.innerHTML = ''; // Clear previous content
         recipeDetail.style.display = 'none'; // Ensure detail view is hidden
         recipeGrid.style.display = 'grid'; // Ensure grid view is visible
 
-        potatoRecipes.forEach((recipe, index) => {
+        recipesToDisplay.forEach((recipe) => { // Iterate over the provided array
             const card = document.createElement('div');
             card.classList.add('recipe-card');
-            card.dataset.index = index; // Store index for detail lookup
-            card.innerHTML = `<h3>${index + 1}. ${recipe.name}</h3><p>${recipe.method}</p>`;
+            // Store the original index from potatoRecipes for showRecipeDetail
+            card.dataset.originalIndex = potatoRecipes.indexOf(recipe);
+            card.innerHTML = `<h3>${potatoRecipes.indexOf(recipe) + 1}. ${recipe.name}</h3><p>${recipe.method}</p>`;
             recipeGrid.appendChild(card);
 
-            card.addEventListener('click', () => showRecipeDetail(index));
+            card.addEventListener('click', () => showRecipeDetail(parseInt(card.dataset.originalIndex)));
         });
     }
 
@@ -764,9 +768,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (potatoButton) {
         potatoButton.addEventListener('click', () => {
             modalOverlay.style.setProperty('display', 'block', 'important');
-            generateRecipeCards(); // Generate recipes when modal opens
+            generateRecipeCards(); // Generate all recipes initially
         });
     }
+
+    // Search functionality
+    const performSearch = () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredRecipes = potatoRecipes.filter(recipe => 
+            recipe.name.toLowerCase().includes(searchTerm) || 
+            recipe.method.toLowerCase().includes(searchTerm) ||
+            recipe.ingredients.toLowerCase().includes(searchTerm)
+        );
+        generateRecipeCards(filteredRecipes);
+    };
+
+    searchButton.addEventListener('click', performSearch);
+    searchInput.addEventListener('input', performSearch);
 
     if (closeButton) {
         closeButton.addEventListener('click', () => {
