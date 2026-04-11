@@ -355,3 +355,10 @@ body {
     border-bottom: 2px solid #eee !important;
     padding-bottom: 15px !important;
 }
+
+.modal-content  {
+    min-height: 70vh !important ;
+    height: auto !important ;
+    padding: 40px !important ;
+    overflow-y: auto !important ;
+}
