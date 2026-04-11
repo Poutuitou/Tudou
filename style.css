@@ -130,6 +130,40 @@ body {
     color: #333;
     margin-bottom: 25px;
     font-size: 2em;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* 背景色，略带透明 */
+    padding: 15px 0;
+    z-index: 10;
+}
+
+.search-container {
+    position: sticky;
+    top: 70px; /* 标题高度 + 少量间距 */
+    background-color: rgba(255, 255, 255, 0.95); /* 背景色，略带透明 */
+    padding: 15px 0;
+    z-index: 9;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#recipe-search {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
 }
 
 .recipe-grid {
